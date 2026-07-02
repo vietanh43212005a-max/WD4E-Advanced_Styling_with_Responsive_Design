@@ -42,6 +42,34 @@ div{
   margin: 5px;
   padding: 2px;
 }
+/* ===========================
+   Tablet View (772px trở lên)
+   =========================== */
+@media screen and (min-width: 772px) {
+
+    div{
+        width: 45%;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    img{
+        max-height: 30vh;
+        width: auto;
+    }
+
+}
+
+/* ===========================
+   Large Screen View (998px trở lên)
+   =========================== */
+@media screen and (min-width: 998px) {
+
+    div{
+        width: 30%;
+    }
+
+}
 
 
 
