@@ -41,6 +41,80 @@ div{
   margin: 5px;
   padding: 2px;
 }
+/* ==========================================
+   1. MOBILE VIEW (Mặc định - Ưu tiên di động)
+   ========================================== */
+main, .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+figure {
+    box-sizing: border-box;
+    background-color: #f8f9fa; /* Màu nền sáng mặc định */
+    border: 1px solid #dee2e6;     /* Màu viền mặc định */
+    padding: 10px;
+}
+
+figure img {
+    width: 100%;
+    display: block;
+}
+
+/* ==========================================
+   2. TABLET VIEW (Kích thước từ 772px)
+   ========================================== */
+@media (min-width: 772px) {
+    main, .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    figure {
+        border-radius: 50%; /* Bo tròn hình tròn */
+    }
+    figure:last-of-type {
+        grid-column: span 2; /* Figure cuối chiếm 2 cột */
+    }
+}
+
+/* ==========================================
+   3. LARGE SCREEN VIEW (Kích thước từ 992px)
+   ========================================== */
+@media (min-width: 992px) {
+    figure {
+        border-radius: 0; /* Xóa bỏ border-radius */
+    }
+    figure:nth-of-type(3n) {
+        grid-column: span 2; /* Mỗi figure thứ 3 chiếm 2 cột */
+    }
+    figure:last-of-type {
+        grid-column: auto; /* Reset lại thuộc tính từ tablet nếu cần */
+    }
+}
+
+/* ==========================================
+   4. USER PREFERENCES (Tùy chỉnh người dùng)
+   ========================================== */
+
+/* Giảm chuyển động (Scroll behavior) */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Giao diện tối (Dark mode) */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #ffffff;
+    }
+    figure {
+        background-color: #242424; /* Nền tối cho figure */
+        color: #ffee55;            /* Chữ vàng sáng (vừa đủ độ tương phản cho WAVE) */
+        border-color: #000000;     /* Viền đen */
+    }
+}
 
 
 
